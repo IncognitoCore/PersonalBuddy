@@ -1,14 +1,24 @@
 <ion-header>
-  <ion-navbar>
-    <ion-title>
-      Ionic Blank
-    </ion-title>
-  </ion-navbar>
+    <ion-navbar>
+        <ion-title>
+            Buddy
+        </ion-title>
+    </ion-navbar>
 </ion-header>
 
 <ion-content padding>
-  The world is your oyster.
-  <p>
-    If you get lost, the <a href="http://ionicframework.com/docs/v2">docs</a> will be your guide.
-  </p>
+    <ion-card *ngFor="let message of messages" class="message-card" [ngClass]="{'right' : message.isFromMe}">
+
+        <ion-card-content>
+            {{message.content}}
+        </ion-card-content>
+
+    </ion-card>
+
+    <ion-footer>
+        <ion-item>
+            <!--<ion-label>Test</ion-label>-->
+            <ion-input type="text" (keyup)="onKeyUp($event)"></ion-input>
+        </ion-item>
+    </ion-footer>
 </ion-content>
