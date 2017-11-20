@@ -19,6 +19,9 @@
         <ion-item>
             <!--<ion-label>Test</ion-label>-->
             <ion-input type="text" (keyup)="onKeyUp($event)"></ion-input>
+            <button ion-button item-right (click)="doRequest()">
+                Send!
+            </button>
         </ion-item>
     </ion-footer>
 </ion-content>
