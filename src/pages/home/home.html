@@ -7,7 +7,7 @@
 </ion-header>
 
 <ion-content padding>
-    <ion-card *ngFor="let message of messages" class="message-card" [ngClass]="{'right' : message.isFromMe}">
+    <ion-card *ngFor="let message of messages" class="message-card" [ngClass]="{'right' : !message.isFromMe}">
 
         <ion-card-content>
             {{message.content}}
@@ -18,7 +18,7 @@
     <ion-footer>
         <ion-item>
             <!--<ion-label>Test</ion-label>-->
-            <ion-input type="text" (keyup)="onKeyUp($event)"></ion-input>
+            <ion-input type="text" [value]="query" (input)="query = $event.target.value" (keyup)="onKeyUp($event)"></ion-input>
             <button ion-button item-right (click)="doRequest()">
                 Send!
             </button>
